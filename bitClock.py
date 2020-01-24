@@ -10,7 +10,7 @@ def bitSignal(dictionary, timeUnit, startIndex):
 
     i = startIndex
 
-    for item in (decimalToBinary(timeUnit)[::-1]):
+    for item in (decimalToBinary(int(timeUnit))[::-1]):
         if item == 1:
             GPIO.output(dictionary["l"+str(startIndex)], 1)
             i += 1
