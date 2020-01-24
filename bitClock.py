@@ -10,17 +10,12 @@ def bitSignal(dictionary, timeUnit, startIndex):
 
     i = startIndex
 
-    # print("timeUnit: " + str(timeUnit))
-    # print("bitNumber: " + str(decimalToBinary(int(timeUnit))[::-1]))
-
     for item in (decimalToBinary(int(timeUnit))[::-1]):
+        print("i: " + str(i))
         if item == "1":
-            # print("i: " + str(i))
-            # print("Output on: " + str(dictionary["l"+str(startIndex)]))
             GPIO.output(dictionary["l"+str(i)], 1)
             i += 1
         elif item == "0":
-            # print("i: " + str(i))
             GPIO.output(dictionary["l"+str(i)], 0)
             i += 1
 
@@ -37,6 +32,7 @@ for element in gpio_dict.values():
 
 while True:
     Hr, Min, Sec = time.strftime("%H %M %S").split(sep=" ")
-    bitSignal(gpio_dict, Hr, 0)
-    bitSignal(gpio_dict, Min, 5)
+    # bitSignal(gpio_dict, Hr, 0)
+    # bitSignal(gpio_dict, Min, 5)
     bitSignal(gpio_dict, Sec, 11)
+    time.sleep(1)
