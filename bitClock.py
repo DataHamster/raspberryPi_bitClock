@@ -11,12 +11,14 @@ def bitSignal(dictionary, timeUnit, startIndex):
     i = startIndex
 
     for item in (decimalToBinary(int(timeUnit))[::-1]):
-        print("i: " + str(i))
+
         if item == "1":
             GPIO.output(dictionary["l"+str(i)], 1)
+            print("input i: " + str(i))
             i += 1
         elif item == "0":
             GPIO.output(dictionary["l"+str(i)], 0)
+            print("output i: " + str(i))
             i += 1
 
 
