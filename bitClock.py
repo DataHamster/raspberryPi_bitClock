@@ -3,7 +3,14 @@ import RPi.GPIO as GPIO
 
 
 def decimalToBinary(n):
-    return bin(n).replace("0b", "")
+    bitCode = bin(n).replace("0b", "")
+    while True:
+        if len(bitCode) < 6:
+            bitCode = "0" + bitCode
+        else:
+            break
+
+    return bitCode
 
 
 def bitSignal(dictionary, timeUnit, startIndex):
