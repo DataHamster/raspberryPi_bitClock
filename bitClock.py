@@ -29,6 +29,8 @@ gpio_dict = {"l0": 4, "l1": 17, "l2": 27, "l3": 22, "l4": 5, "l5": 6, "l6": 13, 
 
 for element in gpio_dict.values():
     GPIO.setup(element, GPIO.OUT)
+    GPIO.output(elementl, 0)
+
 
 while True:
     Hr, Min, Sec = time.strftime("%H %M %S").split(sep=" ")
