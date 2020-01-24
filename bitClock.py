@@ -38,5 +38,7 @@ while True:
     Hr, Min, Sec = time.strftime("%H %M %S").split(sep=" ")
     # bitSignal(gpio_dict, Hr, 0)
     # bitSignal(gpio_dict, Min, 5)
+    print(decimalToBinary(int(Sec)))
+    print(decimalToBinary(int(Sec))[::-1])
     bitSignal(gpio_dict, Sec, 11)
     time.sleep(1)
