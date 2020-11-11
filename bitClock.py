@@ -38,9 +38,17 @@ for element in gpio_dict.values():
     GPIO.setup(element, GPIO.OUT)
     GPIO.output(element, 0)
 
-
+day = True
 while True:
-    Hr, Min, Sec = time.strftime("%H %M %S").split(sep=" ")
-    bitSignal(gpio_dict, Hr, 0)
-    bitSignal(gpio_dict, Min, 5)
-    bitSignal(gpio_dict, Sec, 11)
+    nightOff = (int(time.strftime("%H"))
+    if(nightOff < 23 or nightOff > 6):
+            Hr, Min, Sec=time.strftime("%H %M %S").split(sep=" ")
+            bitSignal(gpio_dict, Hr, 0)
+            bitSignal(gpio_dict, Min, 5)
+            bitSignal(gpio_dict, Sec, 11)
+            day=False
+    else:
+            if !(day):
+                    for element in range(0, 19):
+                            GPIO.output(dictionary["l"+str(element)], 0)
+                    day=True
