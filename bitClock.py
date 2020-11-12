@@ -52,3 +52,5 @@ while True:
             for element in range(0, 19):
                 GPIO.output(dictionary["l"+str(element)], 0)
             day = True
+
+# hallo tino
