@@ -49,6 +49,6 @@ while True:
         bitSignal(gpio_dict, Sec, 11)
         day = False
     else:
-        for element in range(0, 19):
-            GPIO.output(gpio_dict["l"+str(element)], 0)
-            time.sleep(1800)
+        for element in gpio_dict.values():
+            GPIO.setup(element, GPIO.OUT)
+            GPIO.output(element, 0)
