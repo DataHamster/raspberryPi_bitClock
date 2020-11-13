@@ -31,14 +31,15 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 
-gpio_dict = {"l0": 4, "l1": 17, "l2": 27, "l3": 22, "l4": 5, "l5": 6, "l6": 13, "l7": 19,
-             "l8": 26, "l9": 21, "l10": 20, "l11": 16, "l12": 12, "l13": 25, "l14": 24, "l15": 23, "l16": 18}
+gpio_dict = {"l0": 4, "l1": 17, "l2": 27, "l3": 22, "l4": 5, "l5": 6,
+             "l6": 13, "l7": 19, "l8": 26, "l9": 21, "l10": 20,
+             "l11": 16, "l12": 12, "l13": 25, "l14": 24, "l15": 23,
+             "l16": 18}
 
 for element in gpio_dict.values():
     GPIO.setup(element, GPIO.OUT)
     GPIO.output(element, 0)
 
-day = True
 while True:
     nightOff = (int(time.strftime("%H")))
     if (nightOff < 23) and (nightOff > 6):
@@ -48,9 +49,6 @@ while True:
         bitSignal(gpio_dict, Sec, 11)
         day = False
     else:
-        if not (day):
-            for element in range(0, 19):
-                GPIO.output(dictionary["l"+str(element)], 0)
-            day = True
-
-# hallo tino
+        for element in range(0, 19):
+            GPIO.output(gpio_dict["l"+str(element)], 0)
+            time.sleep(1800)
